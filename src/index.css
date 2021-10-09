@@ -1,0 +1,313 @@
+*{  margin: 0;  /*Restaurar o margin e Padding como default*/
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Definições do Body*/
+body{
+  font-family: 'Righteous', cursive;
+   width:100vw;
+   height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image:url('./background/background1.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*Definições para a tag IMG das cartas*/
+img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/*Cartas*/
+.card{
+  width:140px;
+  height: 145px;
+  position:relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor:pointer;
+}
+
+/*Frente e Verso*/
+.card_front , .card_back{
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius:20px;
+ border: 6px solid #081163;
+ box-shadow: 10px 10px 10px #00000045;
+ position:absolute;
+ backface-visibility: hidden;
+}
+
+/*Definição para virar a carta*/
+.flip{
+  transform: rotateY(180deg); /*Para quando a carta estiver de frente*/
+}
+
+.card_front{
+transform: rotateY(180deg); /*Para o efeito ser certo na hora de virar a carta*/
+background-color: #101C2C;
+
+}
+
+.card_back{
+color:#101C2C;
+background-color: #272625;
+font-size: 70px;
+
+-webkit-text-stroke-width: 2px;
+-webkit-text-stroke-color: #cc9c22;
+}
+
+
+
+/*Tela de Home*/
+
+#gameHome{
+  
+  width: 100%;
+  height: 100%;
+
+  background-image:url('./background/background2.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+
+  color:white;
+  font-size: 30px;
+
+  text-align: center;
+
+
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  position:absolute;
+  top:0;
+  left: 0;  /*Para Forçar o conteúdo de ficar por cima do game*/
+}
+
+
+
+
+/*Tela de Fim de Jogo*/
+
+#gameOver{
+  
+  width: 100%;
+  height: 100%;
+
+  background-color: #000000e3;
+
+  color:white;
+  font-size: 30px;
+
+  text-align: center;
+
+
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position:absolute;
+  top:0;
+  left: 0;  /*Para Forçar o conteúdo de ficar por cima do game*/
+}
+
+
+/*Botão Start*/
+#start {
+  background-color: #fffb0f;
+  padding: 15px 30px 15px 30px;
+  border: none;
+  font-family: "Press Start 2P", cursive;
+  font-size: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 10px 10px 10px #0000007e;
+  margin: 10%;
+  animation: opacity 0.6s linear infinite forwards;
+
+  margin-bottom: 80px;
+}
+
+@keyframes opacity {
+  0% { opacity: 0;}
+  100% {opacity: 1;}}
+
+
+/*Botão Restart e Back*/
+#btn{
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: #f3dc09;
+  border:none;
+  border-radius: 10px;
+  margin-top:10%;
+  cursor:pointer;
+
+  margin-bottom: 80px;
+}
+
+
+/*Tabuleiro do Jogo*/
+
+.game{
+  
+  margin-top:6%;
+  display:grid;
+  grid-template: repeat(4, 150px )/repeat(5, 150px); /* << */
+  gap:5px;
+  justify-items: center;
+  align-items: center;
+}
+
+
+
+/*Media queries ------------------------------------------------------------*/
+
+@media screen and (max-width:800px){
+
+  .card{
+      width:120px;
+      height: 125px;
+  }
+
+  .game{
+
+      grid-template: repeat(4, 130px )/repeat(5, 130px); /* << */
+
+  }
+
+}
+
+@media screen and (max-width:700px){
+
+  .card{
+      width:110px;
+      height: 115px;
+  }
+
+  .card_front , .card_back{
+      border-radius:15px;}
+
+  .game{
+
+      grid-template: repeat(4, 120px )/repeat(5, 120px); /* << */
+      gap:5px;
+  
+  }
+
+  .back{
+      top:5%;
+  }
+
+}
+
+@media screen and (max-width:600px){
+
+  .card{
+      width:80px;
+      height: 90px;
+  }
+
+  .game{
+  
+      margin-top: 5%;
+      grid-template: repeat(4, 90px )/repeat(5, 90px); /* << */
+  
+  }
+
+
+}
+
+@media screen and (max-width:500px){
+
+  .card{
+      width:70px;
+      height: 80px;
+  }
+
+  .game{
+  
+      margin-top: 5%;
+      grid-template: repeat(4, 80px )/repeat(5, 80px); /* << */
+
+  
+  }
+}
+
+
+/*Versão Mobile*/
+
+@media only screen and (min-width : 300px) and (max-width:420px) {
+
+  .card{
+      width:80px;
+      height:96px;
+  }
+
+  .card_front , .card_back{
+      border-radius:15px;}
+
+  .game{
+
+      display:grid;
+      grid-template: repeat(5, 100px )/repeat(4, 80px); /* << */
+      gap:5px;
+  }
+
+  #home {
+
+      padding:15px;
+      font-size: 10px;
+
+      border-radius: 15px;
+  
+  }
+ 
+}
+
+
+@media screen and (max-width:280px) {
+
+  .card{
+      width:60px;
+      height:60px;
+  }
+
+  .card_front , .card_back{
+      border-radius:15px;}
+
+  .game{
+  
+      margin-top:3%;
+  
+  
+      display:grid;
+      grid-template: repeat(5, 65px )/repeat(4, 65px); /* << */
+  
+  }
+
+  #home {
+
+      padding:15px;
+      font-size: 10px;
+
+      border-radius: 15px;
+
+  
+  }
+     
+}
