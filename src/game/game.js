@@ -102,6 +102,35 @@ shuffleCards: function (cards){                            //Função para embar
      };
  },
 
+flipcard: function (cardId, gameOverCallBack, noMatchCallBack){
+
+    if (this.setCard(cardId)){
+
+        //aqui
+
+        if (this.secondCard){
+
+            if(this.checkMatch()){
+             this.clearCards();
+
+                if (this.checkGameOver()){
+                //GameOver
+                gameOverCallBack();
+                 };
+            }else{
+                setTimeout(() => {
+                    // No Match
+                this.unflipCards();
+                noMatchCallBack();
+                }, 1000);
+
+                 }
+            }
+         }
+
+
+},
+
 }
 
 export default game;

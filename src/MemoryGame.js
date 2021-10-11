@@ -41,31 +41,15 @@ function MemoryGame (){
     //Flip cards
     function handleFlip(card){
 
-        if (game.setCard(card.id)){
+    game.flipcard(card.id, ()=>{
+        //GameOverCallBack
+        setGameOver(true);
+    }, ()=>{
+        //noMatchCallBack
+        setCards([...game.cards]);
+    })
 
-        //aqui
-
-        if (game.secondCard){
-
-            if(game.checkMatch()){
-             game.clearCards();
-
-                if (game.checkGameOver()){
-                //GameOver
-                setGameOver(true)
-                 };
-            }else{
-                setTimeout(() => {
-                    // No Match
-                game.unflipCards();
-                setCards([...game.cards])
-                }, 1000);
-
-                 }
-            }
-         }
-         setCards([...game.cards])
-
+    setCards([...game.cards]);
         
     }
 
