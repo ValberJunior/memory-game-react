@@ -55,7 +55,7 @@ function MemoryGame (){
 
     return(
         <div>
-            <GameHome show={gameHome} handleStart={start}/>
+            <GameHome show={gameHome} handleStart={start} />
             <GameBoard handleFlip={handleFlip} show={gameBoardOn} cards={cards}/>
             <GameOver show={gameOver} handleRestart={restart}/>
         </div>

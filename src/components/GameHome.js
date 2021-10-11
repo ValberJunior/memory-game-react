@@ -10,7 +10,6 @@ function GameHome (props){
         
         <button id='start' onClick={props.handleStart}>START GAME</button>
 
-
         </div>:<Fragment/>
     )
 
